@@ -1,0 +1,31 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-1">
+      &nbsp;
+    </div>
+    <div class="col-sm-10">
+      <ul class='list-group'>
+        <li class='list-group-item fs-5 p-3 bg-primary text-white'>
+          {{article.articletitle}}
+        </li>
+        <li class='list-group-item p-2'>
+          <p>
+            <img id="imgarticle" *ngIf="article.articleimage!=''" src="{{article.articleimage}}" class="img-fluid rounded articleimg" />
+            <b>Author:</b>&nbsp;{{article.articleauthor}}<br />
+            <b>Date (UTC):</b>&nbsp;
+            <span *ngIf="article.modifiedonutc; else elseBlock">{{article.modifiedonutc}}</span>
+            <ng-template #elseBlock><span>{{article.createdonutc}}</span></ng-template>
+            
+            <br />
+            <br />
+            {{article.articlebody}}
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-1">
+      &nbsp;
+    </div>
+  </div>
+</div>
